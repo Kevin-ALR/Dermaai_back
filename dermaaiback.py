@@ -5,8 +5,11 @@ import torchvision.transforms as transforms
 import torchvision.models as models
 from PIL import Image
 import io
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app)
 
 # Definición de las clases de lesiones
 CLASSES = ['Ampolla', 'Mancha', 'Pustula', 'Roncha']
