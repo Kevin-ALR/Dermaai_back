@@ -9,7 +9,7 @@ import io
 app = Flask(__name__)
 
 # Definición de las clases de lesiones
-CLASSES = ['mancha', 'roncha', 'ampolla', 'pustula']
+CLASSES = ['Ampolla', 'Mancha', 'Pustula', 'Roncha']
 OUTPUT_DIM = len(CLASSES)
 
 # Configuración para las transformaciones de la imagen
@@ -63,7 +63,7 @@ def load_model():
     device = torch.device('cpu') 
     print(f"Usando dispositivo: {device}")
     
-    base_model = models.resnet50(pretrained=True)
+    base_model = models.resnet50(pretrained=False)
     
     num_ftrs = base_model.fc.in_features
     base_model.fc = nn.Linear(num_ftrs, OUTPUT_DIM)
